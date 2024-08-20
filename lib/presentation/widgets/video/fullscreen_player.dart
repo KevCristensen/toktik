@@ -66,7 +66,9 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
                 VideoPlayer(controller),
           
                 // Gradiente
-                VideoBackground(),
+                VideoBackground(
+                  stops: const [0.8, 1.0],
+                ),
           
                 // Texto
           

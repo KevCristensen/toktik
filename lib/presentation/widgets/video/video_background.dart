@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 
 class VideoBackground extends StatelessWidget {
-  const VideoBackground({super.key});
+
+  final List<Color> colors;
+  final List<double> stops;
+
+
+  const VideoBackground({
+    super.key, 
+    this.colors = const[
+      Colors.transparent,
+      Colors.black87,
+    ],
+    this.stops = const[0.5, 1.0],
+    }): assert(colors.length == stops.length, 'colors must have same length that stops');
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +23,8 @@ class VideoBackground extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Colors.black.withOpacity(0.1),
-              Colors.black.withOpacity(0.5),
-            ],
+            colors: colors,
+            stops: stops,
           ),
         ),
       )
